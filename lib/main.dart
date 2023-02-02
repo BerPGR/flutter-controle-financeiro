@@ -1,3 +1,4 @@
+import 'package:controle/colors/palette.dart';
 import 'package:controle/widget_tree.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -15,10 +16,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+          scaffoldBackgroundColor: Palette.scaffoldBackgroundCOlor,
+          primarySwatch: Colors.blue,
+          appBarTheme: AppBarTheme(backgroundColor: Palette.appBarColor)),
       home: WidgetTree(),
     );
   }
