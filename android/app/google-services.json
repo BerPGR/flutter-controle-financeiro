@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "747658509622",
+    "project_id": "cont-6122d",
+    "storage_bucket": "cont-6122d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:747658509622:android:51107f6beca6938d0fc797",
+        "android_client_info": {
+          "package_name": "br.com.bernardo.financeiro.controle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "747658509622-iakccbe3qla0tuq9gggble4uara6hbre.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQB_EbbfgBSH83DEfStnU2DZqmVvNSDsk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "747658509622-iakccbe3qla0tuq9gggble4uara6hbre.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
