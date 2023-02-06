@@ -31,6 +31,16 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Auth().signOut();
+              },
+              icon: Icon(
+                Icons.exit_to_app,
+                color: Colors.white,
+              )),
+        ],
       ),
     );
   }
