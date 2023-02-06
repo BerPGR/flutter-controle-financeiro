@@ -15,8 +15,8 @@ class _WidgetTreeState extends State<WidgetTree> {
   Widget build(BuildContext context) {
     return StreamBuilder(
       stream: Auth().authStateChanges,
-      builder: (context, snapchot) {
-        if (!snapchot.hasData) {
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) {
           return LoginPage();
         } else {
           return HomePage();
