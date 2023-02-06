@@ -4,31 +4,28 @@ import 'package:flutter/material.dart';
 class Categoria {
   final int id;
   final String tipo;
-  final Icon icone;
   double gastos;
 
   Categoria({
     required this.id,
     required this.tipo,
-    required this.icone,
     this.gastos = 0.0,
   });
+
+  Map<String, dynamic> toMap() {
+    return {'id': id, 'tipo': tipo, 'gastos': gastos};
+  }
 }
 
-Categoria lazerCategory =
-    Categoria(id: 0, tipo: 'Lazer', icone: Icon(Icons.lunch_dining_rounded));
+Categoria lazerCategory = Categoria(id: 0, tipo: 'Lazer');
 
-Categoria mercadoCategory =
-    Categoria(id: 1, tipo: 'Mercado', icone: Icon(Icons.shopping_basket));
+Categoria mercadoCategory = Categoria(id: 1, tipo: 'Mercado');
 
-Categoria saudeCategory =
-    Categoria(id: 2, tipo: 'Saúde', icone: Icon(Icons.health_and_safety));
+Categoria saudeCategory = Categoria(id: 2, tipo: 'Saúde');
 
-Categoria transporteCategory =
-    Categoria(id: 3, tipo: 'Transporte', icone: Icon(Icons.car_rental_rounded));
+Categoria transporteCategory = Categoria(id: 3, tipo: 'Transporte');
 
-Categoria contasCategory =
-    Categoria(id: 4, tipo: 'Contas', icone: Icon(Icons.monetization_on_sharp));
+Categoria contasCategory = Categoria(id: 4, tipo: 'Contas');
 
 List<Categoria> categorias = [
   lazerCategory,

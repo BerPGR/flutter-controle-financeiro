@@ -1,5 +1,7 @@
 import 'package:controle/auth.dart';
 import 'package:controle/colors/palette.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:controle/models/categorias.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +17,24 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 
+  late int index = _emailController.text.indexOf('@');
+  late String username = _emailController.text.substring(0, index);
+
+  CollectionReference users = FirebaseFirestore.instance.collection('users');
+
+  Future<void> addUser() async {
+    print('Vai pro users');
+    await users
+        .add({
+          'email': _emailController.text,
+          'username': username,
+          'conta': 0,
+          'categorias': categorias.map((item) => item.toMap()).toList()
+        })
+        .then((value) => print('Deu bom'))
+        .catchError((onError) => print('Deu ruim'));
+  }
+
   Future<void> signIn() async {
     try {
       await Auth().signInWithEmailAndPassword(
@@ -28,8 +48,11 @@ class _LoginPageState extends State<LoginPage> {
 
   Future<void> createAccount() async {
     try {
-      await Auth().createUserWithEmailAndPassword(
-          email: _emailController.text, password: _passwordController.text);
+      await Auth()
+          .createUserWithEmailAndPassword(
+              email: _emailController.text, password: _passwordController.text)
+          .then((value) => addUser())
+          .catchError((onError) => print('${onError}'));
     } on FirebaseAuthException catch (e) {
       setState(() {
         errorMessage = e.message;
