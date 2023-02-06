@@ -12,7 +12,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final User? user = Auth().currentUser;
+  // Apreciem o codigo mais feio do mundo
+  User? user = Auth().currentUser;
+  late final index = user?.email!.indexOf('@');
+  late final String usuario = user!.email!.substring(0, index);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +24,10 @@ class _HomePageState extends State<HomePage> {
         title: Container(
           child: Row(
             children: [
-              Expanded(flex: 1, child: Text('Olá, ${user?.email}!')),
+              Text(
+                'Olá, ${usuario}!',
+                style: TextStyle(fontSize: 20),
+              ),
             ],
           ),
         ),
