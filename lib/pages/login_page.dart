@@ -2,8 +2,6 @@ import 'package:controle/auth.dart';
 import 'package:controle/colors/palette.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
